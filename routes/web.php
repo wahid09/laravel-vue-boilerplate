@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationBootController;
+use App\Http\Controllers\Backend\Division\DivisionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('api/divisions', [DivisionController::class, 'index']);
+Route::post('api/divisions', [DivisionController::class, 'store']);
 
 Route::get('{view}', ApplicationBootController::class)->where('view', '(.*)');
